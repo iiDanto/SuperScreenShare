@@ -56,6 +56,7 @@ public class ScreenShareCommand implements CommandExecutor {
                 target.sendRichMessage("");
                 target.setInvulnerable(true);
                 target.playSound(target, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
+                p.teleport(target);
                 p.sendRichMessage("<#73ff36>You have successfully screenshared <gold>%p".replace("%p", target.getName()));
                 p.playSound(p, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
                 sss.screenedPlayers.add(target.getUniqueId());
