@@ -16,7 +16,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onMovement(PlayerMoveEvent e){
         Player p = e.getPlayer();
-        if (sss.screenedPlayers.contains(p)){
+        if (this.sss.screenedPlayers.contains(p.getUniqueId())){
             p.teleport(e.getFrom());
         }
     }

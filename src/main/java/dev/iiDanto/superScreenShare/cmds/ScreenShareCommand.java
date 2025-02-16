@@ -36,24 +36,23 @@ public class ScreenShareCommand implements CommandExecutor {
         }
         Player target = Bukkit.getPlayer(args[0]);
         if (target != null & target.isOnline()){
-            if (sss.screenedPlayers.contains(target)){
-                sss.screenedPlayers.remove(target);
-                target.sendRichMessage("<gray>You have been <#ff5e36><bold>Released <reset><gray>from the Screenshare!");
+            if (sss.screenedPlayers.contains(target.getUniqueId())){
+                sss.screenedPlayers.remove(target.getUniqueId());
+                target.sendRichMessage("<gray>You have been <#ff5e36><bold>RELEASED <reset><gray>from the Screenshare!");
                 target.playSound(target, Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 1.0f);
                 target.removePotionEffect(PotionEffectType.SLOWNESS);
                 target.removePotionEffect(PotionEffectType.BLINDNESS);
+                target.setInvulnerable(false);
             } else {
                 target.sendTitle(net.md_5.bungee.api.ChatColor.of("#ff5e36") + "YOU ARE BEING SCREENSHARED", ChatColor.GRAY + "Please read further instructions in chat.");
-                target.sendRichMessage("<gray>You are Being <#ff5e36><bold>Screenshared!");
+                target.sendRichMessage("<gray>You are Being <#ff5e36><bold>SCREENSHARED!");
                 target.sendRichMessage("<#ff5e36>1. <gray>Do NOT Attempt to Leave, or Disconnect from the server. Doing so will result in you being banned!");
                 String discordURL = sss.getConfig().getString("configuration.discord-url");
-                TextComponent msgc = Component.text("click here");
-                msgc = msgc.clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL,discordURL));
-                target.sendRichMessage("<#ff5e36>2. <gray>Ensure you are in our Discord Server, if not; Join the server. (" + msgc + ")");
+                target.sendRichMessage("<#ff5e36>2. <gray>Ensure you are in our Discord Server, if not; Join the server. (" + discordURL + ")");
                 target.sendRichMessage("<#ff5e36>3. <gray>Join the Waiting Room Voice call and await a staff member.");
                 target.sendRichMessage("");
                 target.setInvulnerable(true);
-                sss.screenedPlayers.add(target);
+                sss.screenedPlayers.add(target.getUniqueId());
                 PotionEffect slowness = new PotionEffect(PotionEffectType.SLOWNESS, 10000000, 225);
                 PotionEffect blindness = new PotionEffect(PotionEffectType.BLINDNESS, 10000000, 225);
                 target.addPotionEffect(blindness);
