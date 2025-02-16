@@ -43,6 +43,7 @@ public class ScreenShareCommand implements CommandExecutor {
                 target.removePotionEffect(PotionEffectType.SLOWNESS);
                 target.removePotionEffect(PotionEffectType.BLINDNESS);
                 target.setInvulnerable(false);
+                target.playSound(target, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
                 p.sendRichMessage("<#73ff36>You have successfully released <gold>%p".replace("%p", target.getName()));
                 p.playSound(p, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
             } else {
@@ -54,6 +55,7 @@ public class ScreenShareCommand implements CommandExecutor {
                 target.sendRichMessage("<#ff5e36>3. <gray>Join the Waiting Room Voice call and await a staff member.");
                 target.sendRichMessage("");
                 target.setInvulnerable(true);
+                target.playSound(target, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
                 p.sendRichMessage("<#73ff36>You have successfully screenshared <gold>%p".replace("%p", target.getName()));
                 p.playSound(p, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
                 sss.screenedPlayers.add(target.getUniqueId());
