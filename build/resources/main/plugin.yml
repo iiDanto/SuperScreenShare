@@ -2,3 +2,8 @@ name: SuperScreenShare
 version: '1.0-SNAPSHOT'
 main: dev.iiDanto.superScreenShare.SuperScreenShare
 api-version: '1.21'
+author: iiDanto
+commands:
+  ss:
+    aliases: [screenshare]
+    permission: sss.use

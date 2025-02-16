@@ -40,6 +40,8 @@ public class ScreenShareCommand implements CommandExecutor {
                 sss.screenedPlayers.remove(target);
                 target.sendRichMessage("<gray>You have been <#ff5e36><bold>Released <reset><gray>from the Screenshare!");
                 target.playSound(target, Sound.BLOCK_NOTE_BLOCK_PLING, 1.0f, 1.0f);
+                target.removePotionEffect(PotionEffectType.SLOWNESS);
+                target.removePotionEffect(PotionEffectType.BLINDNESS);
             } else {
                 target.sendTitle(net.md_5.bungee.api.ChatColor.of("#ff5e36") + "YOU ARE BEING SCREENSHARED", ChatColor.GRAY + "Please read further instructions in chat.");
                 target.sendRichMessage("<gray>You are Being <#ff5e36><bold>Screenshared!");
