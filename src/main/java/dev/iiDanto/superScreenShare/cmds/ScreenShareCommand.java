@@ -43,6 +43,8 @@ public class ScreenShareCommand implements CommandExecutor {
                 target.removePotionEffect(PotionEffectType.SLOWNESS);
                 target.removePotionEffect(PotionEffectType.BLINDNESS);
                 target.setInvulnerable(false);
+                p.sendRichMessage("<#73ff36>You have successfully released <gold>%p".replace("%p", target.getName()));
+                p.playSound(p, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
             } else {
                 target.sendTitle(net.md_5.bungee.api.ChatColor.of("#ff5e36") + "YOU ARE BEING SCREENSHARED", ChatColor.GRAY + "Please read further instructions in chat.");
                 target.sendRichMessage("<gray>You are Being <#ff5e36><bold>SCREENSHARED!");
@@ -52,6 +54,8 @@ public class ScreenShareCommand implements CommandExecutor {
                 target.sendRichMessage("<#ff5e36>3. <gray>Join the Waiting Room Voice call and await a staff member.");
                 target.sendRichMessage("");
                 target.setInvulnerable(true);
+                p.sendRichMessage("<#73ff36>You have successfully screenshared <gold>%p".replace("%p", target.getName()));
+                p.playSound(p, Sound.BLOCK_NOTE_BLOCK_BASS, 1.0f, 1.0f);
                 sss.screenedPlayers.add(target.getUniqueId());
                 PotionEffect slowness = new PotionEffect(PotionEffectType.SLOWNESS, 10000000, 225);
                 PotionEffect blindness = new PotionEffect(PotionEffectType.BLINDNESS, 10000000, 225);
